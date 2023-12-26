@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Пациенты клиники</h1>
+    <a href="{{ url_for('add_patient') }}" class="btn btn-primary mb-3">Добавить пациента</a>
+    <a href="{{ url_for('select_patient') }}" class="btn btn-primary mb-3">Выбрать пациента </a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Кличка</th>
+                <th>Подробности</th>
+                <th>Вес</th>
+                <th>Возраст</th>
+                <th>Имя и адрес владельца</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        
+        
+    </table>
+    <h1>Ой , ничего нет по Вашему запросу </h1>
+{% endblock %}

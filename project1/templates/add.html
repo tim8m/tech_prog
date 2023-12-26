@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Добавить пациента</h1>
+    <div class="col-6">
+    <form method="post" action="{{ url_for('add_patient') }}">
+        <div class="mb-3">
+            <label for="name" class="form-label">Имя</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="mb-3">
+            <label for="date_block" class="form-label">дата блокировки</label>
+            <textarea class="form-control" id="date_blocl" name="date_block" rows="3" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="cause" class="form-label">причина</label>
+            <input type="text" class="form-control" id="cause" name="cause" required>
+        </div>
+        <div class="mb-3">
+		<label for="host" class="form-label">Хост</label>
+            <input type="text" class="form-control" id="host" name="host" required>
+        </div>
+        <div class="mb-3">
+            <label for="date_unblock" class="form-label">дата разблокировки</label>
+            <input type="text" class="form-control" id="date_unblockp" name="date_unblock" required>
+        </div>
+	<div class="mb-3">
+            <label for="note" class="form-label">примечание</label>
+            <input type="text" class="form-control" id="note" name="note" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+    </div>
+{% endblock %}

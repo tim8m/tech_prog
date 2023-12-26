@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Выбрать пациента</h1>
+    <div class="col-6">
+    <form method="post" action="{{ url_for('select_patient') }}">
+       
+	<div class="mb-3">
+            <label for="sign">Выберите признак :</label>
+            <select id="sign" name="sign">
+              <option value="name">Кличка</option>
+              <option value="details">Подробности</option>
+              <option value="weight">Вес</option>
+              <option value="age">Возраст</option>
+              <option value="owner_name">Имя владельца</option>
+            </select>
+            <label for="condition">Выберите условие :</label>
+            <select id="condition" name="condition">
+	      <option value=">">Больше</option>
+              <option value="<">Меньше</option>
+              <option value="==">Равно</option>
+              <option value="!=">Не равно</option>
+	    </select>
+
+        </div>
+	<div class="mb-3">
+            <label for="value" class="form-label">Возраст</label>
+            <input type="text" class="form-control" id="value" name="value" required>
+
+  	</div>
+            <button type="submit" class="btn btn-primary">Применить</button>
+    </form>
+    </div>
+{% endblock %}

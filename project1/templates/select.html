@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <style>
+      select {
+       height: 37px; /* Ширина списка в пикселах */
+      }
+     </style>
+      
+    <h1>Выбрать пациента</h1>
+    <div class="col-6">
+    <form method="post" action="{{ url_for('select_patient') }}">
+    <table class="table table-striped" >
+        <thead>
+            <tr>
+              <th>Выберите признак</th>
+              <th>Выберите условие</th>
+              <th>Выберите значение</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr align="center">
+	      <td  valign="bottom"  >
+                 <label for="sign"></label>
+                 <select  id="sign" name="sign">
+                    <option value="name">Имя</option>
+                    <option value="data_block">дата блокировки</option>
+                    <option value="cause">причина</option>
+                    <option value="host">хост</option>
+                    <option value="date_unblock">дата разблокировки</option>
+		    <option value="note">примечание</option>
+                 </select>
+              </td>
+              <td  valign="bottom"  >
+                 <label for="condition"></label>
+                 <select id="condition" name="condition">
+	            <option value=">">Больше</option>
+                    <option value="<">Меньше</option>
+                    <option value="==">Равно</option>
+                    <option value="!=">Не равно</option>
+	         </select>
+	      </td>
+	      <td   valign="middle" >
+                 <label for="value" class="form-label"></label>
+                 <input type="text" class="form-control" id="value" name="value" required>
+
+  	      </td>
+  	    </tr>
+  	</tbody>
+    </table>
+            <button type="submit" class="btn btn-primary">Применить</button>
+    </form>
+    </div>
+{% endblock %}

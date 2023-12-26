@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Редактирование профиля</h1>
+    <div class="col-6">
+    <form method="post" action="{{ url_for('edit_patient', id=patient.id) }}">
+        <div class="mb-3">
+            <label for="name" class="form-label">Имя</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ patient.name }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="date_block" class="form-label">дата блокировки</label>
+            <textarea class="form-control" id="date_block" name="date_block" rows="3" required>{{ patient.date_block }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="cause" class="form-label">Причина</label>
+            <input type="text" class="form-control" id="cause" name="cause" value="{{ patient.cause }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="host" class="form-label">хост</label>
+            <input type="text" class="form-control" id="host" name="host" value="{{ patient.host }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="date_unblock" class="form-label">Дата разблокировки</label>
+            <input type="text" class="form-control" id="date_unblock" name="date_unblock" value="{{ patient.date_unblock }}" required>
+        </div>
+	<div class="mb-3">
+            <label for="note" class="form-label">Примечание</label>
+            <input type="text" class="form-control" id="note" name="note" value="{{ patient.note }}" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+    </form>
+  </div>
+{% endblock %}

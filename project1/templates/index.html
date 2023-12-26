@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Пользователи сети</h1>
+    <a href="{{ url_for('add_patient') }}" class="btn btn-primary mb-3">Добавить пользователя</a>
+    <a href="{{ url_for('select_patient') }}" class="btn btn-primary mb-3">Выбрать пользователя </a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>дата блокировки</th>
+                <th>причина</th>
+                <th>хост</th>
+                <th>дата разблокировки</th>
+                <th>примечание</th>
+		<th>действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in patients %}
+            <tr>
+                <td>{{ patient.name }}</td>
+                <td>{{ patient.date_block }}</td>
+                <td>{{ patient.cause }}</td>
+                <td>{{ patient.host }}</td>
+                <td>{{ patient.date_unblock }}</td>
+		<td>{{ patient.note }}</td>
+                <td>
+                    <a href="{{ url_for('edit_patient', id=patient.id) }}" class="btn btn-sm btn-primary mx-1">Редактировать</a>
+                    <form method="post" action="{{ url_for('delete_patient', id=patient.id) }}" style="display: inline">
+                        <button type="submit" class="btn btn-sm btn-danger mx-1">Удалить</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
